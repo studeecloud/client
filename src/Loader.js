@@ -20,11 +20,8 @@ function Loader() {
   const userName = queryParams.get('username');
   const roomName = queryParams.get('room');
 
-  console.log('LOGGING "userName":', userName);
-  console.log('LOGGING "roomName":', roomName);
-
   useEffect(() => {
-    if (userName !== '' && roomName !== '') {
+    if (userName !== null && roomName !== null) {
       axios
         .get(`http://localhost:8080/video/token/${userName}/${roomName}`)
         .then((res) => {
