@@ -1,11 +1,10 @@
 import { useState } from 'react';
 import axios from 'axios';
 
-
 /**
  * Creates MessageForm component as a child of the ChatPanel
  * @param {Function} getMessages
- * @param {String} userName 
+ * @param {String} userName
  * @returns MessageForm component
  */
 export default function MessageForm({ getMessages, userName, roomName }) {
@@ -20,7 +19,7 @@ export default function MessageForm({ getMessages, userName, roomName }) {
   // If no username is specified, 'NullUser' will be sent instead.
   const handleSubmit = () => {
     axios
-      .post('http://localhost:8080/messages', {
+      .post('https://studeecloud-server.herokuapp.com/messages', {
         message: message,
         userName: userName || 'NullUser',
         roomName: roomName,

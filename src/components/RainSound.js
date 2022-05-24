@@ -13,7 +13,7 @@ export default function RainSound() {
   //Setsplaying state to true through HELPER FUNCTION in SoundContext.js
   const playSound = () => {
     setRain(true);
-    setSrc('http://localhost:8080/public/Rain.mp3');
+    setSrc('https://studeecloud-server.herokuapp.com/public/Rain.mp3');
   };
 
   const pauseSound = () => {

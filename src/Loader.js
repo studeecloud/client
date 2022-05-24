@@ -23,7 +23,9 @@ function Loader() {
   useEffect(() => {
     if (userName !== null && roomName !== null) {
       axios
-        .get(`http://localhost:8080/video/token/${userName}/${roomName}`)
+        .get(
+          `https://studeecloud-server.herokuapp.com/video/token/${userName}/${roomName}`
+        )
         .then((res) => {
           setToken(res.data);
         });

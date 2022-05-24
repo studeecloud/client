@@ -12,7 +12,7 @@ export default function PianoSound() {
 
   //Setsplaying state to true through HELPER FUNCTION in SoundContext.js
   const playSound = () => {
-    setSrc('http://localhost:8080/public/Piano.mp3');
+    setSrc('https://studeecloud-server.herokuapp.com/public/Piano.mp3');
     setPiano(true);
   };
 

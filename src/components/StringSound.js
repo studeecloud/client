@@ -12,7 +12,7 @@ export default function StringSound() {
   //Setsplaying state to true through HELPER FUNCTION in SoundContext.js
   const playSound = () => {
     setString(true);
-    setSrc('http://localhost:8080/public/Strings.mp3');
+    setSrc('https://studeecloud-server.herokuapp.com/public/Strings.mp3');
   };
 
   const pauseSound = () => {

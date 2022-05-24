@@ -36,7 +36,7 @@ export default function ChatPanel({ onSelect, userName, roomName }) {
 
   const getMessages = () => {
     axios
-      .get(`http://localhost:8080/messages/${roomName}`)
+      .get(`https://studeecloud-server.herokuapp.com/messages/${roomName}`)
       .then((res) => {
         setMessages(res.data);
         console.log('message data: ', messages);
@@ -63,7 +63,11 @@ export default function ChatPanel({ onSelect, userName, roomName }) {
         <div>
           <MessageList messages={messages} />
         </div>
-        <MessageForm getMessages={getMessages} userName={userName} roomName={roomName} />
+        <MessageForm
+          getMessages={getMessages}
+          userName={userName}
+          roomName={roomName}
+        />
       </article>
     </section>
   );
