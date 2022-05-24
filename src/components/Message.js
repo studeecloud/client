@@ -1,21 +1,13 @@
-import { BigHead } from '@bigheads/core';
-
-export default function Message(props) {
-  // const message = {
-  //   user: 'LISA',
-  //   body: 'Isn\'t StudeeCloud the best?!'
-  // }
-
+export default function Message({ user, body }) {
   return (
-    <article className="flex border border-dark-gray rounded p-2 bg-meringue mb-3">
+    <article className="flex flex-col border border-dark-gray rounded px-2 bg-meringue mb-3">
       <header>
-        {/* <BigHead className="h-20 w-20" /> */}
-        <h2 className="m-1 font-header w-24">
-          <strong>{props.user}</strong>
+        <h2 className="mx-1 font-body break-all">
+          <small><strong>{user}</strong></small>
         </h2>
       </header>
 
-      <p className="my-auto ml-3 font-body break-all">{props.body}</p>
+      <p className="my-auto mx-1 font-body break-all">{body}</p>
     </article>
   );
 }

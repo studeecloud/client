@@ -3,8 +3,6 @@ import { BigHead } from '@bigheads/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 import {
-  connect,
-  createLocalTracks,
   createLocalVideoTrack,
 } from 'twilio-video';
 
@@ -320,7 +318,7 @@ export default function VideoPanel({ onSelect, twilioRoomObj, focused }) {
 
       {showVideos && (
         <>
-          <h1 className="mt-3 mb-5 font-display mb-6 text-4xl text-center">
+          <h1 className="mt-3 mb-5 font-display mb-6 text-4xl text-center text-deep-purple">
             Squad
           </h1>
 

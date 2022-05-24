@@ -13,7 +13,7 @@ export default function RainSound() {
   //Setsplaying state to true through HELPER FUNCTION in SoundContext.js
   const playSound = () => {
     setRain(true);
-    setSrc('https://studeecloud-server.herokuapp.com/public/Rain.mp3');
+    setSrc('https://studeecloud-server.herokuapp.com/Rain.mp3');
   };
 
   const pauseSound = () => {
@@ -21,18 +21,18 @@ export default function RainSound() {
   };
 
   return (
-    <section className="flex flex-row justify-around">
+    <section className="flex flex-row justify-around items-center">
       <div>
         <h1 className="font-body text-2xl text-center">Rainy</h1>
       </div>
       <div>
         {rain ? (
-          <button onClick={pauseSound}>
-            <FontAwesomeIcon icon={solid('circle-pause')} />
+          <button onClick={pauseSound} className="align-middle">
+            <FontAwesomeIcon icon={solid('circle-pause')} className="h-5" />
           </button>
         ) : (
-          <button onClick={playSound}>
-            <FontAwesomeIcon icon={solid('circle-play')} />
+          <button onClick={playSound} className="align-middle">
+            <FontAwesomeIcon icon={solid('circle-play')} className="h-5" />
           </button>
         )}
       </div>

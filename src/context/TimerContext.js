@@ -79,7 +79,9 @@ function TimerProvider({ children }) {
   );
 
   return (
-    <TimerContext.Provider value={value}>{children}</TimerContext.Provider>
+    <TimerContext.Provider html5={true} volume={0.6} value={value}>
+      {children}
+    </TimerContext.Provider>
   );
 }
 export const useTimer = () => useContext(TimerContext);

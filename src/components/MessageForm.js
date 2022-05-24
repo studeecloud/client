@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { light } from '@fortawesome/fontawesome-svg-core/import.macro';
 
 /**
  * Creates MessageForm component as a child of the ChatPanel
@@ -47,20 +49,24 @@ export default function MessageForm({ getMessages, userName, roomName }) {
         <label className="hidden">Chat with your squad</label>
         <input
           type="text"
-          className="border focus:border-2 border-dark-gray py-2 px-3 mr-2 rounded w-full"
+          className="border focus:border border-dark-gray py-2 px-3 mr-2 rounded w-full"
           name="message"
           rows={1}
+          autoFocus={true}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           style={{ resize: 'none' }}
         ></input>
-        <input
+        <button
           type="submit"
-          value="Send"
-          className="w-24 p-2 border-2 font-body text-meringue border-dark-gray bg-teal rounded"
+          className="w-24 p-2 border-2 font-body text-meringue border-dark-gray bg-teal rounded flex items-center justify-center"
           onClick={handleSubmit}
-          autoFocus={true}
-        />
+        >
+          <FontAwesomeIcon
+            icon={light('paper-plane-top')}
+            className="h-5 text-meringue"
+          />
+        </button>
       </div>
     </form>
   );

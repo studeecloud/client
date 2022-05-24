@@ -9,6 +9,7 @@
       href="https://fonts.googleapis.com/css2?family=Bungee+Hairline&family=Bungee+Shade&family=Nunito:ital,wght@0,200;0,400;0,700;1,200;1,400;1,700&display=swap"
       rel="stylesheet"
     />
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -31,47 +32,57 @@
         },
       };
     </script>
-    <title>Login | StudeeCloud</title>
+    <title>Join a room | StudeeCloud</title>
   </head>
-  <body class="bg-coral">
+  <body>
     <header>
       <h1 class="font-display text-6xl text-center my-12">StudeeCloud</h1>
-      <h1 class="font-display text-6xl text-center mt-8 mb-16">Login</h1>
+      <h1 class="font-display text-6xl text-center mt-8 mb-16">
+        Join your group
+      </h1>
     </header>
     <main>
-      <div
-        class="w-1/2 border-2 rounded-3xl mx-auto border-black font-body bg-gold"
-      >
-        <form action="/" method="get" class="flex flex-col items-center py-10">
-          <div class="flex flex-col items-center mt-4 mb-7">
-            <label class="text-4xl mb-3" for="username">Name</label>
+      <div class="w-1/2 border-2 rounded-3xl mx-auto border-black font-body">
+        <form action="/" method="get" class="flex flex-col items-center">
+          <div class="flex flex-col items-center mt-8 mb-6">
+            <label class="text-3xl mb-3" for="room">Room</label>
+            <input
+              type="text"
+              name="room"
+              id="room"
+              value="Testing!"
+              readonly
+              required
+              class="border px-2 rounded text-xl text-center focus-visible:outline-none"
+            />
+          </div>
+
+          <div class="flex flex-col items-center mt-4 mb-2">
+            <label class="text-3xl mb-3" for="username">Username</label>
             <input
               type="text"
               name="username"
               id="username"
               required
               autofocus
-              class="border px-2 rounded"
+              class="border px-2 text-xl text-center rounded"
             />
           </div>
-          <div class="flex flex-col items-center mb-8">
-            <label class="text-4xl mb-3" for="room">Room</label>
-            <input
-              type="text"
-              name="room"
-              id="room"
-              required
-              class="border px-2 text-2xl rounded"
-            />
-          </div>
+
           <button
             type="submit"
-            class="px-3 py-1 border border-black text-3xl rounded bg-meringue"
+            class="w-24 my-5 px-3 py-1 border text-2xl rounded"
           >
-            Log in
+            Join
           </button>
         </form>
       </div>
     </main>
+
+    <script>
+      const roomField = document.getElementById('room');
+      const roomName = window.location.search.split('=')[1];
+      roomField.value = roomName;
+    </script>
   </body>
 </html>

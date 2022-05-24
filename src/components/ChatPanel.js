@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import MessageForm from './MessageForm';
 import MessageList from './MessageList';
-import { BigHead } from '@bigheads/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 
@@ -32,14 +31,13 @@ export default function ChatPanel({ onSelect, userName, roomName }) {
 
   useInterval(() => {
     getMessages();
-  }, 250);
+  }, 1000);
 
   const getMessages = () => {
     axios
       .get(`https://studeecloud-server.herokuapp.com/messages/${roomName}`)
       .then((res) => {
         setMessages(res.data);
-        console.log('message data: ', messages);
       })
       .catch((err) => {
         console.log(err);
@@ -56,7 +54,7 @@ export default function ChatPanel({ onSelect, userName, roomName }) {
       >
         <FontAwesomeIcon icon={solid('expand')} className="h-7" />
       </button>
-      <h1 className="mt-3 mb-5 font-display text-4xl text-black text-center">
+      <h1 className="mt-3 mb-5 font-display text-4xl text-deep-purple text-center">
         Chat
       </h1>
       <article className="flex flex-col justify-between border w-5/6 mx-auto bg-gold p-2 rounded h-5/6 overflow-auto">

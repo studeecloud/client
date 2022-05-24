@@ -26,12 +26,12 @@ export default function StringSound() {
       </div>
       <div>
         {string ? (
-          <button onClick={pauseSound}>
-            <FontAwesomeIcon icon={solid('circle-pause')} />
+          <button onClick={pauseSound} className="align-middle">
+            <FontAwesomeIcon icon={solid('circle-pause')} className="h-5" />
           </button>
         ) : (
-          <button onClick={playSound}>
-            <FontAwesomeIcon icon={solid('circle-play')} />
+          <button onClick={playSound} className="align-middle">
+            <FontAwesomeIcon icon={solid('circle-play')} className="h-5" />
           </button>
         )}
       </div>
