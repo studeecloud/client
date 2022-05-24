@@ -20,6 +20,9 @@ function Loader() {
   const userName = queryParams.get('username');
   const roomName = queryParams.get('room');
 
+  console.log('LOGGING "userName":', userName);
+  console.log('LOGGING "roomName":', roomName);
+
   useEffect(() => {
     if (userName !== '' && roomName !== '') {
       axios
