@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee+Hairline&family=Bungee+Shade&family=Nunito:ital,wght@0,200;0,400;0,700;1,200;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          colors: {
+            'dark-gray': '#313131',
+            'deep-purple': '#31121a',
+            plum: '#830f4c',
+            teal: '#016668',
+            coral: '#f38181',
+            gold: '#ffcb92',
+            meringue: '#fef9e8',
+          },
+          extend: {},
+          fontFamily: {
+            display: ['Bungee Shade', 'cursive'],
+            header: ['Bungee Hairline', 'cursive'],
+            body: ['Nunito', 'sans-serif'],
+          },
+        },
+      };
+    </script>
+    <title>Login | StudeeCloud</title>
+  </head>
+  <body>
+    <header>
+      <h1 class="font-display text-6xl text-center my-12">StudeeCloud</h1>
+      <h1 class="font-display text-6xl text-center my-8">Login</h1>
+    </header>
+    <body>
+      <div class="w-1/2 border-2 rounded-3xl mx-auto border-black font-body">
+        <form action="/" method="get" class="flex flex-col items-center">
+          <div class="flex flex-col items-center mt-4 mb-2">
+            <label class="text-2xl mb-3" for="username">Username</label>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              required
+              class="border px-2 rounded"
+            />
+          </div>
+
+          <div class="flex flex-col items-center mt-4 mb-2">
+            <label class="text-2xl mb-3" for="room">Room Name</label>
+            <input
+              type="text"
+              name="room"
+              id="room"
+              required
+              class="border px-2 rounded"
+            />
+          </div>
+          <button type="submit" class="my-5 px-3 py-1 border text-xl rounded">
+            Sign in
+          </button>
+        </form>
+      </div>
+    </body>
+  </body>
+</html>
