@@ -59,7 +59,7 @@ export default function ChatPanel({ onSelect, userName, roomName }) {
         Chat
       </h1>
       <article className="flex flex-col justify-between border w-5/6 mx-auto bg-gold p-2 rounded h-5/6">
-        <div className="overflow-auto">
+        <div className="flex flex-col-reverse overflow-auto">
           <MessageList messages={messages} />
         </div>
         <MessageForm
@@ -68,6 +68,6 @@ export default function ChatPanel({ onSelect, userName, roomName }) {
           roomName={roomName}
         />
       </article>
-    </section >
+    </section>
   );
 }
