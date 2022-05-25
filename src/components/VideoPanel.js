@@ -2,9 +2,7 @@ import { useState, useEffect } from 'react';
 import { BigHead } from '@bigheads/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
-import {
-  createLocalVideoTrack,
-} from 'twilio-video';
+import { createLocalVideoTrack } from 'twilio-video';
 
 export default function VideoPanel({ onSelect, twilioRoomObj, focused }) {
   // TODO -- Update this so the Big Heads aren't regenerated on each click to this panel
@@ -298,7 +296,7 @@ export default function VideoPanel({ onSelect, twilioRoomObj, focused }) {
       <button
         type="button"
         className="absolute"
-        style={{ bottom: '3.5%', left: '2%' }}
+        style={{ top: '3.5%', right: '8%' }}
         onClick={toggleShowVideos}
       >
         <FontAwesomeIcon icon={solid('rectangle')} className="h-7" />

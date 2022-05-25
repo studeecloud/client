@@ -12,15 +12,11 @@ export default function SoundPanel() {
             <h1 className="mt-3 mb-2 font-display text-deep-purple text-4xl text-center">
               Soundboard
             </h1>
-            <h2 className="mb-3 font-header text-lg text-center">sfx</h2>
           </div>
           <div className="w-1/2">
             <h1 className="mt-3 mb-2 font-display text-deep-purple text-4xl text-center">
               Timer
             </h1>
-            <h2 className="mb-3 font-header text-lg text-center">
-              stay on task
-            </h2>
           </div>
         </div>
 

@@ -21,24 +21,24 @@ export default function TitlePanel(props) {
             study environment
           </h2>
         </div>
-        <div className="flex items-center justify-center">
-          <h3 className="font-body text-dark-gray text-2xl">
-            <strong className="font-header">room: </strong>
-            {roomName}
+
+        <div className="flex items-center justify-center mb-2">
+          <h3 className="font-body text-dark-gray text-2xl mr-3">
+            <strong>Invite your team to</strong>
           </h3>
-
-          <button
-            type="button"
-            className="text-body text-teal text-xl border p-2 m-3 rounded"
-            onClick={() => navigator.clipboard.writeText(joinRoomLink)}
-          >
-            <FontAwesomeIcon icon={light('clone')} />
-          </button>
+          <div className="w-fit px-4 py-2 flex items-center justify-center border-2 rounded-lg">
+            <button
+              type="button"
+              className="flex items-center text-body text-teal text-xl"
+              onClick={() => navigator.clipboard.writeText(joinRoomLink)}
+            >
+              <span className="font-body text-dark-gray text-2xl">
+                {roomName}
+              </span>
+              <FontAwesomeIcon icon={light('clone')} className="ml-4 h-8" />
+            </button>
+          </div>
         </div>
-
-        <h3 className="font-body text-2xl text-deep-purple text-center m-auto">
-          Share your room link with your team!
-        </h3>
       </div>
     </section>
   );
