@@ -8,7 +8,7 @@ import Message from './Message';
 export default function MessageList({ messages }) {
   return (
     <>
-      {messages.map((message, i) => {
+      {messages.reverse().map((message, i) => {
         return (
           <Message
             key={i}
