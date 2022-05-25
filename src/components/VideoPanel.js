@@ -304,19 +304,15 @@ export default function VideoPanel({ onSelect, twilioRoomObj, focused }) {
 
       {!showVideos && (
         <div className="flex flex-col justify-center h-full w-fit mx-auto">
-          <h1 className="mt-3 mb-5 font-display text-4xl text-center">
-            Focus Mode Engaged
-          </h1>
-
-          <h1 className="mt-3 mb-5 font-display text-4xl text-center">
-            It's Time For Work!
+          <h1 className="mt-3 mb-5 font-display text-teal text-5xl text-center">
+            Focus Mode
           </h1>
         </div>
       )}
 
       {showVideos && (
         <>
-          <h1 className="mt-3 mb-5 font-display mb-6 text-4xl text-center text-deep-purple">
+          <h1 className="mt-3 mb-5 font-display mb-6 text-4xl text-center text-teal">
             Squad
           </h1>
 
