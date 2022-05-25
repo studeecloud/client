@@ -31,63 +31,85 @@
           extend: {},
           fontFamily: {
             display: ['Bungee Shade', 'cursive'],
-            header: ['Bungee Hairline', 'cursive'],
+            header: ['Major Mono Display', 'monospace'],
+            accent: ['Roboto Mono', 'monospace'],
             body: ['Nunito', 'sans-serif'],
           },
         },
       };
     </script>
-    <title>Join a room | StudeeCloud</title>
+    <title>Join a Room | StudeeCloud</title>
+
+    <style>
+      body {
+        /* background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); */
+        background: linear-gradient(-45deg, #830f4c, #f38181, #ffcb92, #fef938);
+        background-size: 400% 400%;
+        animation: gradient 30s ease infinite;
+        height: 100vh;
+      }
+
+      @keyframes gradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+    </style>
   </head>
   <body>
-    <header>
-      <h1 class="font-display text-6xl text-center my-12">StudeeCloud</h1>
-      <h1 class="font-display text-6xl text-center mt-8 mb-16">
-        Join your group
-      </h1>
-    </header>
     <main>
-      <div class="w-1/2 border-2 rounded-3xl mx-auto border-black font-body">
-        <form action="/" method="get" class="flex flex-col items-center">
-          <div class="flex flex-col items-center mt-8 mb-6">
-            <label class="text-3xl mb-3" for="room">Room</label>
-            <input
-              type="text"
-              name="room"
-              id="room"
-              value="Testing!"
-              readonly
-              required
-              class="border px-2 rounded text-xl text-center focus-visible:outline-none"
-            />
+      <div class="h-screen w-screen flex flex-col justify-end">
+        <div class="flex h-full justify-center items-center">
+          <div>
+            <h1 class="font-display text-8xl text-center mb-8">StudeeCloud</h1>
+            <h1 class="font-display text-7xl text-center">Join room</h1>
+            <h2
+              id="roomNameHeading"
+              class="w-fit mx-auto mt-16 px-10 pt-2 pb-3 font-accent text-4xl text-center border-4 rounded-xl"
+            ></h2>
           </div>
+        </div>
 
-          <div class="flex flex-col items-center mt-4 mb-2">
-            <label class="text-3xl mb-3" for="username">Username</label>
-            <input
-              type="text"
-              name="username"
-              id="username"
-              required
-              autofocus
-              class="border px-2 text-xl text-center rounded"
-            />
-          </div>
-
+        <form action="/" method="get" class="flex justify-center mb-10">
+          <label class="mr-2 font-header text-4xl" for="username">name</label>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            required
+            autofocus
+            class="border mr-6 px-2 text-2xl rounded"
+          />
+          <label class="hidden" for="room">room</label>
+          <input
+            type="text"
+            name="room"
+            id="roomNameField"
+            required
+            class="hidden"
+          />
           <button
             type="submit"
-            class="w-24 my-5 px-3 py-1 border text-2xl rounded"
+            class="mr-3 px-3 py-1 border border-black font-header text-3xl rounded bg-meringue"
           >
-            Join
+            join
           </button>
         </form>
       </div>
     </main>
 
     <script>
-      const roomField = document.getElementById('room');
+      const roomField = document.getElementById('roomNameField');
+      const roomHeading = document.getElementById('roomNameHeading');
       const roomName = window.location.search.split('=')[1];
       roomField.value = roomName;
+      roomHeading.textContent = roomName;
     </script>
   </body>
 </html>
