@@ -16,16 +16,14 @@ export default function TitlePanel(props) {
           </h1>
 
           <h2 className="font-header text-dark-gray text-3xl text-center">
-            <strong>
-              Collaborative
-              <br />
-              Study Environment
-            </strong>
+            collaborative
+            <br />
+            study environment
           </h2>
         </div>
         <div className="flex items-center justify-center">
           <h3 className="font-body text-dark-gray text-2xl">
-            <strong className="font-header">Room: </strong>
+            <strong className="font-header">room: </strong>
             {roomName}
           </h3>
 
