@@ -41,7 +41,7 @@ export default function MessageForm({ getMessages, userName, roomName }) {
     <form
       method="post"
       action="/messages"
-      className="flex flex-col items-center w-full bg-gold"
+      className="flex flex-col items-center w-full bg-gold pt-1"
       onSubmit={disableSubmit}
       style={{ position: 'sticky', bottom: -10 }}
     >

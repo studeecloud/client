@@ -55,25 +55,19 @@ export default function ChatPanel({ onSelect, userName, roomName }) {
         <FontAwesomeIcon icon={solid('expand')} className="h-7" />
       </button>
 
-      {/* h1 "Chat" had classes mt-3 mb-4 */}
-
-      <div className="flex flex-col h-full">
-        <h1 className="grow-0 my-3 font-display text-4xl text-deep-purple text-center">
-          Chat
-        </h1>
-        <div className="grow border-2 border-coral">
-          <article className="flex flex-col justify-between border w-5/6 h-full mx-auto bg-gold p-2 rounded">
-            <div className="overflow-auto">
-              <MessageList messages={messages} />
-            </div>
-            <MessageForm
-              getMessages={getMessages}
-              userName={userName}
-              roomName={roomName}
-            />
-          </article>
+      <h1 className="mt-3 mb-5 font-display text-4xl text-teal text-center">
+        Chat
+      </h1>
+      <article className="flex flex-col justify-between border w-5/6 mx-auto bg-gold p-2 rounded h-5/6">
+        <div className="overflow-auto">
+          <MessageList messages={messages} />
         </div>
-      </div>
-    </section>
+        <MessageForm
+          getMessages={getMessages}
+          userName={userName}
+          roomName={roomName}
+        />
+      </article>
+    </section >
   );
 }
