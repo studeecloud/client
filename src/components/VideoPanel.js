@@ -120,8 +120,8 @@ export default function VideoPanel({ onSelect, twilioRoomObj, focused }) {
             remoteMediaContainer.firstChild
           );
         }
-
-        participant.tracks.forEach((publication) => {});
+        // TODO: this looks incomplete
+        participant.tracks.forEach((publication) => { });
       });
 
       participant.on('trackSubscribed', (track) => {
@@ -134,8 +134,8 @@ export default function VideoPanel({ onSelect, twilioRoomObj, focused }) {
             remoteMediaContainer.firstChild
           );
         }
-
-        participant.tracks.forEach((publication) => {});
+        // TODO: this looks incomplete
+        participant.tracks.forEach((publication) => { });
       });
     });
 
