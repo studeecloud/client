@@ -13,7 +13,7 @@ module.exports = {
     extend: {},
     fontFamily: {
       display: ['Bungee Shade', 'cursive'],
-      header: ['Bungee Hairline', 'cursive'],
+      header: ['Major Mono Display', 'monospace'],
       body: ['Nunito', 'sans-serif'],
     },
     plugins: [require('@tailwindcss/typography'), require('daisyui')],
