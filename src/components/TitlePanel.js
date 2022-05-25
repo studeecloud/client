@@ -28,7 +28,7 @@ export default function TitlePanel(props) {
           <div className="w-fit px-4 py-2 flex items-center justify-center border-2 rounded-lg">
             <button
               type="button"
-              className="flex items-center text-body text-teal text-xl"
+              className="flex items-center hover:font-bold text-body text-teal text-xl"
               onClick={() => navigator.clipboard.writeText(joinRoomLink)}
             >
               <span className="font-body text-dark-gray text-2xl">
