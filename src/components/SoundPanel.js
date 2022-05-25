@@ -9,7 +9,7 @@ export default function SoundPanel() {
       <div className="flex h-full">
         <div className="w-1/2 h-full flex flex-col items-center justify-between">
           <div className="w-1/2">
-            <h1 className="mt-3 mb-2 font-display text-teal text-4xl text-center">
+            <h1 className="mt-6 mb-2 font-display text-teal text-4xl text-center">
               Sounds
             </h1>
           </div>
@@ -25,7 +25,7 @@ export default function SoundPanel() {
 
         <div className="w-1/2 flex flex-col items-center">
           <div className="w-1/2">
-            <h1 className="mt-3 mb-2 font-display text-teal text-4xl text-center">
+            <h1 className="mt-6 mb-2 font-display text-teal text-4xl text-center">
               Timer
             </h1>
           </div>
