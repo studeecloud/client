@@ -31,50 +31,70 @@
           extend: {},
           fontFamily: {
             display: ['Bungee Shade', 'cursive'],
-            header: ['Bungee Hairline', 'cursive'],
+            header: ['Major Mono Display', 'monospace'],
+            accent: ['Roboto Mono', 'monospace'],
             body: ['Nunito', 'sans-serif'],
           },
         },
       };
     </script>
     <title>Login | StudeeCloud</title>
+
+    <style>
+      body {
+        /* background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); */
+        background: linear-gradient(-45deg, #830f4c, #f38181, #ffcb92, #fef938);
+        background-size: 400% 400%;
+        animation: gradient 30s ease infinite;
+        height: 100vh;
+      }
+
+      @keyframes gradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+    </style>
   </head>
-  <body class="bg-coral">
-    <header>
-      <h1 class="font-display text-6xl text-center my-12">StudeeCloud</h1>
-      <h1 class="font-display text-6xl text-center mt-8 mb-16">Login</h1>
-    </header>
+  <body>
+    <header></header>
     <main>
-      <div
-        class="w-1/2 border-2 rounded-3xl mx-auto border-black font-body bg-gold"
-      >
-        <form action="/" method="get" class="flex flex-col items-center py-10">
-          <div class="flex flex-col items-center mt-4 mb-7">
-            <label class="text-4xl mb-3" for="username">Name</label>
-            <input
-              type="text"
-              name="username"
-              id="username"
-              required
-              autofocus
-              class="border px-2 text-2xl rounded"
-            />
-          </div>
-          <div class="flex flex-col items-center mb-8">
-            <label class="text-4xl mb-3" for="room">Room</label>
-            <input
-              type="text"
-              name="room"
-              id="room"
-              required
-              class="border px-2 text-2xl rounded"
-            />
-          </div>
+      <div class="h-screen w-screen flex flex-col justify-between">
+        <div></div>
+        <div>
+          <h1 class="font-display text-8xl text-center mb-8">StudeeCloud</h1>
+          <h1 class="font-display text-7xl text-center">Login</h1>
+        </div>
+
+        <form action="/" method="get" class="flex justify-center mb-10">
+          <label class="mr-2 font-header text-4xl" for="username">name</label>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            required
+            autofocus
+            class="border mr-6 px-2 text-2xl rounded"
+          />
+          <label class="mr-2 font-header text-4xl" for="room">room</label>
+          <input
+            type="text"
+            name="room"
+            id="room"
+            required
+            class="border mr-4 px-2 text-2xl rounded"
+          />
           <button
             type="submit"
-            class="px-3 py-1 border border-black text-3xl rounded bg-meringue"
+            class="mr-3 px-3 py-1 border border-black font-header text-3xl rounded bg-meringue"
           >
-            Log in
+            log in
           </button>
         </form>
       </div>
