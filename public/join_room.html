@@ -20,20 +20,20 @@
       tailwind.config = {
         theme: {
           colors: {
-            "dark-gray": "#313131",
-            "deep-purple": "#31121a",
-            plum: "#830f4c",
-            teal: "#016668",
-            coral: "#f38181",
-            gold: "#ffcb92",
-            meringue: "#fef9e8",
+            'dark-gray': '#313131',
+            'deep-purple': '#31121a',
+            plum: '#830f4c',
+            teal: '#016668',
+            coral: '#f38181',
+            gold: '#ffcb92',
+            meringue: '#fef9e8',
           },
           extend: {},
           fontFamily: {
-            display: ["Bungee Shade", "cursive"],
-            header: ["Major Mono Display", "monospace"],
-            accent: ["Roboto Mono", "monospace"],
-            body: ["Nunito", "sans-serif"],
+            display: ['Bungee Shade', 'cursive'],
+            header: ['Major Mono Display', 'monospace'],
+            accent: ['Roboto Mono', 'monospace'],
+            body: ['Nunito', 'sans-serif'],
           },
         },
       };
@@ -63,44 +63,53 @@
     </style>
   </head>
   <body>
-    <header>
-      <h1 class="font-display text-6xl text-center my-12">StudeeCloud</h1>
-      <h1 class="font-display text-6xl text-center mt-8 mb-16">
-        Join your group
-      </h1>
-    </header>
     <main>
-      <form action="/" method="get" class="flex justify-center mb-10">
-        <label class="mr-2 font-header text-4xl" for="username">name</label>
-        <input
-          type="text"
-          name="username"
-          id="username"
-          required
-          autofocus
-          class="border mr-6 px-2 text-2xl rounded"
-        />
-        <label class="mr-2 font-header text-4xl" for="room">room</label>
-        <input
-          type="text"
-          name="room"
-          id="room"
-          required
-          class="border mr-4 px-2 text-2xl rounded"
-        />
-        <button
-          type="submit"
-          class="mr-3 px-3 py-1 border border-black font-header text-3xl rounded bg-meringue"
-        >
-          join
-        </button>
-      </form>
+      <div class="h-screen w-screen flex flex-col justify-end">
+        <div class="flex h-full justify-center items-center">
+          <div>
+            <h1 class="font-display text-8xl text-center mb-8">StudeeCloud</h1>
+            <h1 class="font-display text-7xl text-center">Join room</h1>
+            <h2
+              id="roomNameHeading"
+              class="w-fit mx-auto mt-16 px-10 pt-2 pb-3 font-accent text-4xl text-center border-4 rounded-xl"
+            ></h2>
+          </div>
+        </div>
+
+        <form action="/" method="get" class="flex justify-center mb-10">
+          <label class="mr-2 font-header text-4xl" for="username">name</label>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            required
+            autofocus
+            class="border mr-6 px-2 text-2xl rounded"
+          />
+          <label class="hidden" for="room">room</label>
+          <input
+            type="text"
+            name="room"
+            id="roomNameField"
+            required
+            class="hidden"
+          />
+          <button
+            type="submit"
+            class="mr-3 px-3 py-1 border border-black font-header text-3xl rounded bg-meringue"
+          >
+            join
+          </button>
+        </form>
+      </div>
     </main>
 
     <script>
-      const roomField = document.getElementById("room");
-      const roomName = window.location.search.split("=")[1];
+      const roomField = document.getElementById('roomNameField');
+      const roomHeading = document.getElementById('roomNameHeading');
+      const roomName = window.location.search.split('=')[1];
       roomField.value = roomName;
+      roomHeading.textContent = roomName;
     </script>
   </body>
 </html>
