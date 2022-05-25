@@ -45,7 +45,7 @@ export default function ChatPanel({ onSelect, userName, roomName }) {
   };
 
   return (
-    <section className="dashboard__panel relative border bg-meringue pb-6">
+    <section className="dashboard__panel relative border bg-meringue pb-6 pt-12">
       <button
         type="button"
         className="absolute"
@@ -54,11 +54,8 @@ export default function ChatPanel({ onSelect, userName, roomName }) {
       >
         <FontAwesomeIcon icon={solid('expand')} className="h-7" />
       </button>
-      <h1 className="mt-3 mb-5 font-display text-4xl text-teal text-center">
-        Chat
-      </h1>
-      <article className="flex flex-col justify-between border w-5/6 mx-auto bg-gold p-2 rounded h-5/6 overflow-auto">
-        <div>
+      <article className="flex flex-col justify-between border w-5/6 h-full mx-auto bg-gold p-2 rounded">
+        <div className="overflow-auto">
           <MessageList messages={messages} />
         </div>
         <MessageForm
