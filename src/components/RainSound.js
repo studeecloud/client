@@ -21,7 +21,7 @@ export default function RainSound() {
   };
 
   return (
-    <section className="flex flex-row justify-around items-center">
+    <section className="flex flex-row justify-between items-center">
       <div>
         <h1 className="font-body text-2xl text-center">Rainy</h1>
       </div>

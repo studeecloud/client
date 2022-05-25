@@ -20,7 +20,7 @@ export default function StringSound() {
   };
 
   return (
-    <section className="flex flex-row justify-around">
+    <section className="flex flex-row justify-between items-center">
       <div>
         <h1 className="font-body text-2xl text-center">Violin</h1>
       </div>
