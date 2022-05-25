@@ -9,16 +9,15 @@ export default function TitlePanel(props) {
 
   return (
     <section className="dashboard__panel relative border bg-meringue py-4">
-      <div className="h-full flex flex-col justify-end">
-        <div className="my-auto">
+      <div className="h-full flex flex-col justify-between">
+        <div></div>
+        <div>
           <h1 className="mt-3 mb-5 font-display text-teal text-5xl text-center">
             StudeeCloud
           </h1>
 
           <h2 className="font-header text-dark-gray text-3xl text-center">
-            collaborative
-            <br />
-            study environment
+            learn together
           </h2>
         </div>
 

@@ -316,7 +316,7 @@ export default function VideoPanel({ onSelect, twilioRoomObj, focused }) {
 
       {showVideos && (
         <>
-          <h1 className="mt-3 mb-5 font-display mb-6 text-4xl text-center text-deep-purple">
+          <h1 className="mt-3 mb-5 font-display mb-6 text-4xl text-center text-teal">
             Squad
           </h1>
 
