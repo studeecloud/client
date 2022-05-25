@@ -13,7 +13,9 @@ module.exports = {
     extend: {},
     fontFamily: {
       display: ['Bungee Shade', 'cursive'],
+      // note that Major Mono Display does not take kindly to capital letters
       header: ['Major Mono Display', 'monospace'],
+      accent: ['Roboto Mono', 'monospace'],
       body: ['Nunito', 'sans-serif'],
     },
     plugins: [require('@tailwindcss/typography'), require('daisyui')],
