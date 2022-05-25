@@ -46,11 +46,11 @@ export default function Timer() {
           value={percentage}
           styles={buildStyles({
             textColor: 'black',
-            pathColor: mode === 'work' ? 'black' : '#ffcb92',
+            pathColor: mode === 'work' ? '#016668' : '#ffcb92',
             tailColor: 'rgba(255,255,255,.2)',
           })}
         >
-          <p className="text-2xl">{minutes + ':' + seconds}</p>
+          <p className="text-2xl text-teal">{minutes + ':' + seconds}</p>
         </CircularProgressbarWithChildren>
       </div>
 
