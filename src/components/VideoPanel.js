@@ -121,7 +121,7 @@ export default function VideoPanel({ onSelect, twilioRoomObj, focused }) {
           );
         }
         // TODO: this looks incomplete
-        participant.tracks.forEach((publication) => { });
+        participant.tracks.forEach((publication) => {});
       });
 
       participant.on('trackSubscribed', (track) => {
@@ -135,7 +135,7 @@ export default function VideoPanel({ onSelect, twilioRoomObj, focused }) {
           );
         }
         // TODO: this looks incomplete
-        participant.tracks.forEach((publication) => { });
+        participant.tracks.forEach((publication) => {});
       });
     });
 

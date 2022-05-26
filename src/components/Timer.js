@@ -5,13 +5,7 @@ import {
   buildStyles,
 } from 'react-circular-progressbar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  solid,
-  regular,
-  brands,
-} from '@fortawesome/fontawesome-svg-core/import.macro';
-
-import { useState, useEffect } from 'react';
+import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 
 export default function Timer() {
   const {
@@ -19,11 +13,8 @@ export default function Timer() {
     workMinutes,
     breakMinutes,
     secondsLeft,
-    setSecondsLeft,
     isPaused,
-    setIsPaused,
     mode,
-    setMode,
     togglePlay,
   } = useTimer();
 
@@ -53,9 +44,6 @@ export default function Timer() {
           <p className="text-2xl text-teal">{minutes + ':' + seconds}</p>
         </CircularProgressbarWithChildren>
       </div>
-
-      {/* TODO -- These are the classes that were being used to style the Timer buttons */}
-      {/* className="bg-meringue border-2 border-dark-purple font-body p-2 rounded text-dark-gray text-2xl" */}
 
       <div className="ml-4">
         <div className="mb-2">

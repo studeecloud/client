@@ -1,11 +1,7 @@
 import { useSound } from '../context/SoundContext';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  solid,
-  regular,
-  brands,
-} from '@fortawesome/fontawesome-svg-core/import.macro';
+import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 
 export default function RainSound() {
   const { rain, setRain, setSrc } = useSound();
