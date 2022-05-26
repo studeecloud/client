@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Nunito:ital,wght@0,200;0,400;0,700;1,200;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Roboto+Mono:ital,wght@0,300;0,450;1,300;1,450&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          colors: {
+            'dark-gray': '#313131',
+            'deep-purple': '#31121a',
+            plum: '#830f4c',
+            teal: '#016668',
+            coral: '#f38181',
+            gold: '#ffcb92',
+            meringue: '#fef9e8',
+          },
+          extend: {},
+          fontFamily: {
+            display: ['Bungee Shade', 'cursive'],
+            header: ['Major Mono Display', 'monospace'],
+            accent: ['Roboto Mono', 'monospace'],
+            body: ['Nunito', 'sans-serif'],
+          },
+        },
+      };
+    </script>
+    <title>Login | StudeeCloud</title>
+
+    <style>
+      /* * {
+        border: 2px solid blue !important;
+      } */
+      body {
+        /* background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); */
+        background: linear-gradient(-45deg, #830f4c, #f38181, #ffcb92, #fef938);
+        background-size: 400% 400%;
+        animation: gradient 30s ease infinite;
+        height: 100vh;
+      }
+
+      ul > li {
+        margin-bottom: 0.5rem;
+      }
+
+      @keyframes gradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <div class="h-screen w-screen flex flex-col justify-between">
+        <div class="font-header text-center">
+          <h1 class="font-display text-7xl mt-24 mb-6">StudeeCloud</h1>
+        </div>
+
+        <div class="flex justify-center font-header text-2xl mb-12">
+          <span class="">developed by&nbsp;</span>
+          <a href="https://github.com/l-m-meyer">lisa meyer</a>,&nbsp;
+          <a href="https://github.com/KehanYe">kehan fu</a
+          ><span>, and&nbsp;</span>
+          <a href="https://github.com/gonzonieto">gonzo nieto</a>
+        </div>
+
+        <div class="flex mb-14">
+          <h3
+            class="w-1/2 mr-10 flex justify-end items-center text-3xl text-center"
+          >
+            <strong>STACK</strong>
+            <img src="/icons/microchip.svg" class="w-9 ml-3" />
+          </h3>
+          <div class="text-2xl w-1/2">
+            <h4>FRONT END</h4>
+            <p class="mb-8">React — Tailwind — Howler.js</p>
+
+            <h4>BACK END</h4>
+            <p>Node.js — Express — PostgreSQL — Twilio API</p>
+          </div>
+        </div>
+
+        <div class="flex">
+          <h3
+            class="flex justify-end w-1/2 flex items-center mr-10 text-3xl text-center"
+          >
+            <strong>ROADMAP</strong>
+            <img src="/icons/road.svg" class="w-9 ml-3" />
+          </h3>
+          <div class="w-1/2 text-2xl">
+            <p>Four-way calls</p>
+            <p>Screensharing</p>
+            <p>Panel customization</p>
+          </div>
+        </div>
+        <!-- </div> -->
+
+        <div class="mt-auto mb-3 font-accent">
+          <ul class="flex justify-evenly text-3xl list-disc">
+            <li class="flex">
+              <img src="/icons/circle-envelope.svg" class="w-8 mr-2" />
+              <a href="mailto:hi@studee.cloud">hi@studee.cloud</a>
+            </li>
+            <li class="flex">
+              <img src="/icons/github.svg" class="w-8 mr-2" />
+              <a href="https://github.com/gonzonieto/studeecloud-client"
+                >github.com/studeecloud</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
