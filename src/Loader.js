@@ -2,9 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { connect, createLocalTracks } from 'twilio-video';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  solid
-} from '@fortawesome/fontawesome-svg-core/import.macro';
+import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 
 import App from './App';
 import { TimerProvider } from './context/TimerContext';
@@ -65,16 +63,16 @@ function Loader() {
               StudeeCloud
             </h1>
             <div className="flex justify-center items-center mb-8">
-              <FontAwesomeIcon
+              {/* <FontAwesomeIcon
                 icon={solid('face-clouds')}
                 className="text-meringue h-16"
-              />
+              /> */}
               <h2 className="font-header text-5xl text-meringue text-center">
-                <strong> Loading... </strong>
+                <strong> loading </strong>
               </h2>
               <FontAwesomeIcon
                 icon={solid('face-clouds')}
-                className="text-meringue h-16"
+                className="text-meringue h-16 ml-6"
               />
             </div>
             <img
