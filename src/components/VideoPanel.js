@@ -17,7 +17,8 @@ export default function VideoPanel({ onSelect, twilioRoomObj, focused }) {
   };
 
   // If we receive an event indicating a track was disabled, execute the code inside
-  function handleTrackDisabled(track) {
+
+  const handleTrackDisabled = (track) => {
     track.off('disabled', () => {
       // TODO - render Big Head avatar
       console.log('Track disabled:');
@@ -29,9 +30,9 @@ export default function VideoPanel({ onSelect, twilioRoomObj, focused }) {
       console.log('Track disabled:');
       console.log(track);
     });
-  }
+  };
   // If we receive an event indicating a track was enabled, execute the code inside
-  function handleTrackEnabled(track) {
+  const handleTrackEnabled = (track) => {
     track.off('enabled', () => {
       // TODO - render Big Head avatar
       console.log('Track enabled:');
@@ -43,20 +44,20 @@ export default function VideoPanel({ onSelect, twilioRoomObj, focused }) {
       console.log('Track enabled:');
       console.log(track);
     });
-  }
+  };
+
+  const attachVideoTrack = (track, containerId) => {
+    if (document.getElementById(containerId)) {
+      const container = document.getElementById(containerId);
+      container.replaceChild(track.attach(), container.firstChild);
+    }
+  };
 
   useEffect(() => {
     // Display a local camera preview
-    createLocalVideoTrack().then((track) => {
-      if (document.getElementById('local-media-div')) {
-        const localMediaContainer = document.getElementById('local-media-div');
-        console.log('LOCAL MEDIA ATTACHER');
-        localMediaContainer.replaceChild(
-          track.attach(),
-          localMediaContainer.firstChild
-        );
-      }
-    });
+    createLocalVideoTrack().then((track) =>
+      attachVideoTrack(track, 'local-media-div')
+    );
 
     // Iterate over remote participants in the room
     twilioRoomObj.participants.forEach((participant) => {
@@ -64,15 +65,9 @@ export default function VideoPanel({ onSelect, twilioRoomObj, focused }) {
       participant.tracks.forEach((publication) => {
         // If the media track is published, display it
         if (publication.track) {
-          const remoteMediaContainer =
-            document.getElementById('remote-media-div');
-          if (remoteMediaContainer) {
-            remoteMediaContainer.replaceChild(
-              publication.track.attach(),
-              remoteMediaContainer.firstChild
-            );
-          }
+          attachVideoTrack(publication.track, 'remote-media-div');
         }
+
         // Attach the listeners to every subscribed media track
         if (publication.isSubscribed) {
           handleTrackEnabled(publication.track);
@@ -112,30 +107,19 @@ export default function VideoPanel({ onSelect, twilioRoomObj, focused }) {
 
       // Display any new media tracks that are subscribed by participants in the room
       participant.off('trackSubscribed', (track) => {
-        const remoteMediaContainer =
-          document.getElementById('remote-media-div');
-        if (remoteMediaContainer) {
-          remoteMediaContainer.replaceChild(
-            track.attach(),
-            remoteMediaContainer.firstChild
-          );
-        }
-        // TODO: this looks incomplete
-        participant.tracks.forEach((publication) => {});
+        attachVideoTrack(track, 'remote-media-div');
+
+        participant.tracks.forEach((publication) => {
+          attachVideoTrack(publication, 'remote-media-div');
+        });
       });
 
       participant.on('trackSubscribed', (track) => {
-        console.log('Remote attacher 2');
-        const remoteMediaContainer =
-          document.getElementById('remote-media-div');
-        if (remoteMediaContainer) {
-          remoteMediaContainer.replaceChild(
-            track.attach(),
-            remoteMediaContainer.firstChild
-          );
-        }
-        // TODO: this looks incomplete
-        participant.tracks.forEach((publication) => {});
+        attachVideoTrack(track, 'remote-media-div');
+
+        participant.tracks.forEach((publication) => {
+          attachVideoTrack(publication, 'remote-media-div');
+        });
       });
     });
 
@@ -144,41 +128,23 @@ export default function VideoPanel({ onSelect, twilioRoomObj, focused }) {
       // When a participant joins, we iterate over the possible media tracks that they might be broadcasting at the time that they join the Room
       participant.tracks.forEach((publication) => {
         // If a given media track is being broadcast, we grab it and use it to replace the existing child of 'remote-media-div'
+
         if (publication.isSubscribed) {
           const track = publication.track;
-          const remoteMediaContainer =
-            document.getElementById('remote-media-div');
-          remoteMediaContainer.replaceChild(
-            track.attach(),
-            remoteMediaContainer.firstChild
-          );
+          attachVideoTrack(track, 'remote-media-div');
         }
       });
 
       // If a participant begins broadcasting a media track that they were not broadcasting when they joined the call, this event is triggered
       participant.off('trackSubscribed', (track) => {
         // When that happens, we use it to replace the existing child of 'remote-media-div'
-        const remoteMediaContainer =
-          document.getElementById('remote-media-div');
-        if (remoteMediaContainer) {
-          remoteMediaContainer.replaceChild(
-            track.attach(),
-            remoteMediaContainer.firstChild
-          );
-        }
+        attachVideoTrack(track, 'remote-media-div');
       });
 
       participant.on('trackSubscribed', (track) => {
-        console.log('Remote attacher 3');
         // When that happens, we use it to replace the existing child of 'remote-media-div'
-        const remoteMediaContainer =
-          document.getElementById('remote-media-div');
-        if (remoteMediaContainer) {
-          remoteMediaContainer.replaceChild(
-            track.attach(),
-            remoteMediaContainer.firstChild
-          );
-        }
+        console.log('Remote attacher 3');
+        attachVideoTrack(track, 'remote-media-div');
       });
     });
 
@@ -189,39 +155,20 @@ export default function VideoPanel({ onSelect, twilioRoomObj, focused }) {
         if (publication.isSubscribed) {
           console.log('Remote attacher 4');
           const track = publication.track;
-          const remoteMediaContainer =
-            document.getElementById('remote-media-div');
-          remoteMediaContainer.replaceChild(
-            track.attach(),
-            remoteMediaContainer.firstChild
-          );
+          attachVideoTrack(track, 'remote-media-div');
         }
       });
 
       // If a participant begins broadcasting a media track that they were not broadcasting when they joined the call, this event is triggered
       participant.off('trackSubscribed', (track) => {
         // When that happens, we use it to replace the existing child of 'remote-media-div'
-        const remoteMediaContainer =
-          document.getElementById('remote-media-div');
-        if (remoteMediaContainer) {
-          remoteMediaContainer.replaceChild(
-            track.attach(),
-            remoteMediaContainer.firstChild
-          );
-        }
+        attachVideoTrack(track, 'remote-media-div');
       });
 
       participant.on('trackSubscribed', (track) => {
         console.log('Remote attacher 5');
         // When that happens, we use it to replace the existing child of 'remote-media-div'
-        const remoteMediaContainer =
-          document.getElementById('remote-media-div');
-        if (remoteMediaContainer) {
-          remoteMediaContainer.replaceChild(
-            track.attach(),
-            remoteMediaContainer.firstChild
-          );
-        }
+        attachVideoTrack(track, 'remote-media-div');
       });
     });
 
