@@ -41,21 +41,24 @@ export default function SoundPanel({ soundData }) {
             </h1>
           </div>
 
-          <div className="w-1/2 px-6 py-6 my-auto flex flex-col justify-around text-meringue bg-teal border-2 rounded-xl">
+          <div className="w-7/12 px-6 py-8 my-auto flex flex-col justify-around text-meringue bg-teal border-2 rounded-xl">
             {sounds}
             {playing ? (
               <button
                 onClick={() => toggleSound(selectedSound)}
                 className="align-middle"
               >
-                <FontAwesomeIcon icon={solid('circle-pause')} className="h-9" />
+                <FontAwesomeIcon
+                  icon={solid('circle-pause')}
+                  className="h-10"
+                />
               </button>
             ) : (
               <button
                 onClick={() => toggleSound(selectedSound)}
                 className="align-middle"
               >
-                <FontAwesomeIcon icon={solid('circle-play')} className="h-9" />
+                <FontAwesomeIcon icon={solid('circle-play')} className="h-10" />
               </button>
             )}
           </div>

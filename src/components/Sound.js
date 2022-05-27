@@ -2,10 +2,10 @@ import classnames from 'classnames';
 
 export default function Sound({ name, selectSound, isSelected }) {
   const soundNameClasses = classnames(
-    'font-body text-2xl text-center px-4 py-1',
+    'font-body text-3xl text-center px-4 py-1 border-2',
     {
-      'text-teal bg-meringue border-2 rounded-full': isSelected,
-      'text-meringue border-teal border-2': !isSelected,
+      'text-teal bg-meringue rounded-full': isSelected,
+      'text-meringue border-teal': !isSelected,
     }
   );
 
