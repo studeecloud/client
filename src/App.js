@@ -7,11 +7,16 @@ import ChatPanel from './components/ChatPanel';
 import SoundPanel from './components/SoundPanel';
 
 function App({ userName, twilioRoomObj }) {
-  const roomName = twilioRoomObj.name;
-
-  const joinRoomLink = window.location.origin + '/join_room.html?room=' + roomName;
-
   const [panelState, setPanelState] = useState({ focused: null });
+  const roomName = twilioRoomObj.name;
+  const joinRoomLink =
+    window.location.origin + '/join_room.html?room=' + roomName;
+
+  const soundData = [
+    { file: 'Strings.mp3', name: 'Violin' },
+    { file: 'Rain.mp3', name: 'Storm' },
+    { file: 'Piano.mp3', name: 'Piano' },
+  ];
 
   //Changes panelState by panel id
   const selectPanel = (id) => {
@@ -20,7 +25,6 @@ function App({ userName, twilioRoomObj }) {
     }));
   };
 
-  // Test data for panels
   const panelData = [
     {
       id: 1,
@@ -52,10 +56,7 @@ function App({ userName, twilioRoomObj }) {
     .map((panel) => {
       if (panel.id === 1)
         return (
-          <TitlePanel key={1}
-            roomName={roomName}
-            joinRoomLink={joinRoomLink}
-          />
+          <TitlePanel key={1} roomName={roomName} joinRoomLink={joinRoomLink} />
         );
       else if (panel.id === 2)
         return (
@@ -75,7 +76,8 @@ function App({ userName, twilioRoomObj }) {
             roomName={roomName}
           />
         );
-      else if (panel.id === 4) return <SoundPanel key={4} />;
+      else if (panel.id === 4)
+        return <SoundPanel key={4} soundData={soundData} />;
       return null;
     });
 
