@@ -1,33 +1,14 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
-import MessageForm from './MessageForm';
-import MessageList from './MessageList';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 
+import { useInterval } from '../hooks';
+import MessageForm from './MessageForm';
+import MessageList from './MessageList';
+
 export default function ChatPanel({ onSelect, userName, roomName }) {
   const [messages, setMessages] = useState([]);
-
-  // Custom hook useInterval will take an action on a set time interval
-  const useInterval = (callback, delay) => {
-    const savedCallback = useRef();
-
-    // Remember the latest callback
-    useEffect(() => {
-      savedCallback.current = callback;
-    }, [callback]);
-
-    // Set up the interval
-    useEffect(() => {
-      function tick() {
-        savedCallback.current();
-      }
-      if (delay !== null) {
-        let id = setInterval(tick, delay);
-        return () => clearInterval(id);
-      }
-    }, [delay]);
-  };
 
   useInterval(() => {
     getMessages();
