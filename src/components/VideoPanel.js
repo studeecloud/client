@@ -3,6 +3,7 @@ import { BigHead } from '@bigheads/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 import { createLocalVideoTrack } from 'twilio-video';
+import classnames from 'classnames';
 
 export default function VideoPanel({ onSelect, twilioRoomObj, focused }) {
   // TODO -- Update this so the Big Heads aren't regenerated on each click to this panel
@@ -229,6 +230,18 @@ export default function VideoPanel({ onSelect, twilioRoomObj, focused }) {
     });
   };
 
+  const headerClasses = classnames({
+    hidden: !showVideos,
+  });
+
+  const videoGridClasses = classnames({
+    hidden: !showVideos,
+  });
+
+  const focusOverlayClasses = classnames({
+    hidden: showVideos,
+  });
+
   return (
     <section className="dashboard__panel relative border bg-meringue">
       <button
@@ -249,90 +262,88 @@ export default function VideoPanel({ onSelect, twilioRoomObj, focused }) {
         <FontAwesomeIcon icon={solid('rectangle')} className="h-7" />
       </button>
 
-      {!showVideos && (
-        <div className="flex flex-col justify-center h-full w-fit mx-auto">
-          <h1 className="mt-3 mb-5 font-display text-teal text-5xl text-center">
-            Focus Mode
-          </h1>
-        </div>
-      )}
+      <div
+        className={`flex flex-col justify-center h-full w-fit mx-auto ${focusOverlayClasses}`}
+      >
+        <h1 className="mt-3 mb-5 font-display text-teal text-5xl text-center">
+          Focus Mode
+        </h1>
+      </div>
 
-      {showVideos && (
-        <>
-          <h1 className="mt-3 mb-5 font-display mb-6 text-4xl text-center text-teal">
-            Squad
-          </h1>
+      <h1
+        className={`mt-3 mb-5 font-display mb-6 text-4xl text-center text-teal ${headerClasses}`}
+      >
+        Squad
+      </h1>
 
-          <div className="grid grid-rows-2 grid-cols-2 gap-3">
-            <div className="w-7/12 mx-auto flex items-center border-2 border-dark-gray rounded">
-              <div id="callControlPanel" className="flex flex-col text-lg">
-                <button
-                  type="button"
-                  name="videoOff"
-                  onClick={() => muteVideo(twilioRoomObj)}
-                >
-                  <FontAwesomeIcon icon={solid('video-slash')} />
-                </button>
-
-                <button
-                  type="button"
-                  name="videoOn"
-                  onClick={() => enableVideo(twilioRoomObj)}
-                >
-                  <FontAwesomeIcon icon={solid('video')} />
-                </button>
-
-                <button
-                  type="button"
-                  name="micOff"
-                  onClick={() => muteAudio(twilioRoomObj)}
-                >
-                  <FontAwesomeIcon icon={solid('microphone-slash')} />
-                </button>
-
-                <button
-                  type="button"
-                  name="micOn"
-                  onClick={() => enableAudio(twilioRoomObj)}
-                >
-                  <FontAwesomeIcon icon={solid('microphone')} />
-                </button>
-              </div>
-
-              <div id="local-media-div">
-                <div className="flex flex-col items-center">
-                  <BigHead className="w-1/2 mb-3" />
-                  YOU
-                </div>
-              </div>
-            </div>
-
-            <div
-              id="remote-media-div"
-              className="w-7/12 border-2 border-dark-gray mx-auto rounded"
+      <div className={`grid grid-rows-2 grid-cols-2 gap-3 ${videoGridClasses}`}>
+        <div className="w-7/12 mx-auto flex items-center border-2 border-dark-gray rounded">
+          <div id="callControlPanel" className="flex flex-col text-lg">
+            <button
+              type="button"
+              name="videoOff"
+              onClick={() => muteVideo(twilioRoomObj)}
             >
-              <div className="flex flex-col items-center">
-                <BigHead className="w-1/2 mb-3" />
-                LISA
-              </div>
-            </div>
+              <FontAwesomeIcon icon={solid('video-slash')} />
+            </button>
 
-            <div className="w-7/12 border-2 border-dark-gray mx-auto rounded">
-              <div className="flex flex-col items-center">
-                <BigHead className="w-1/2 mb-3" />
-                KEHAN
-              </div>
-            </div>
+            <button
+              type="button"
+              name="videoOn"
+              onClick={() => enableVideo(twilioRoomObj)}
+            >
+              <FontAwesomeIcon icon={solid('video')} />
+            </button>
 
-            <div className="w-7/12 border-2 border-dark-gray mx-auto rounded">
-              <div className="flex flex-col items-center">
-                <BigHead className="w-1/2 mb-3" />
-                GONZO
-              </div>
+            <button
+              type="button"
+              name="micOff"
+              onClick={() => muteAudio(twilioRoomObj)}
+            >
+              <FontAwesomeIcon icon={solid('microphone-slash')} />
+            </button>
+
+            <button
+              type="button"
+              name="micOn"
+              onClick={() => enableAudio(twilioRoomObj)}
+            >
+              <FontAwesomeIcon icon={solid('microphone')} />
+            </button>
+          </div>
+
+          <div id="local-media-div">
+            <div className="flex flex-col items-center">
+              <BigHead className="w-1/2 mb-3" />
+              YOU
             </div>
           </div>
-        </>
-      )}
+        </div>
+
+        <div
+          id="remote-media-div"
+          className="w-7/12 border-2 border-dark-gray mx-auto rounded"
+        >
+          <div className="flex flex-col items-center">
+            <BigHead className="w-1/2 mb-3" />
+            LISA
+          </div>
+        </div>
+
+        <div className="w-7/12 border-2 border-dark-gray mx-auto rounded">
+          <div className="flex flex-col items-center">
+            <BigHead className="w-1/2 mb-3" />
+            KEHAN
+          </div>
+        </div>
+
+        <div className="w-7/12 border-2 border-dark-gray mx-auto rounded">
+          <div className="flex flex-col items-center">
+            <BigHead className="w-1/2 mb-3" />
+            GONZO
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
