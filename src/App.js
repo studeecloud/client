@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import TitlePanel from './components/TitlePanel';
 import VideoPanel from './components/VideoPanel';
 import ChatPanel from './components/ChatPanel';
-import SoundPanel from './components/SoundPanel';
+import SoundPanel from './components/BottomRightPanel/SoundPanel';
 
 function App({ userName, twilioRoomObj }) {
   const [panelState, setPanelState] = useState({ focused: null });
