@@ -1,7 +1,7 @@
 import PianoSound from './PianoSound';
 import RainSound from './RainSound';
 import StringSound from './StringSound';
-import PomodoroTimer from './PomodoroTimer';
+import Timer from './Timer';
 
 export default function SoundPanel() {
   return (
@@ -25,7 +25,7 @@ export default function SoundPanel() {
           </h1>
 
           <div className="my-auto flex items-center">
-            <PomodoroTimer />
+            <Timer />
           </div>
         </div>
       </div>
