@@ -1,7 +1,5 @@
 import PomodoroTimer from './PomodoroTimer';
-import PianoSound from './PianoSound';
-import RainSound from './RainSound';
-import StringSound from './StringSound';
+import Sound from './Sound';
 
 export default function SoundPanel() {
   return (
@@ -15,9 +13,9 @@ export default function SoundPanel() {
           </div>
 
           <div className="w-7/12 h-1/3 mx-auto px-6 py-2 flex flex-col justify-around text-meringue bg-teal border-2 rounded-xl">
-            <StringSound />
-            <RainSound />
-            <PianoSound />
+            <Sound fileName="Strings.mp3" soundName="Violin" />
+            <Sound fileName="Rain.mp3" soundName="Storm" />
+            <Sound fileName="Piano.mp3" soundName="Piano" />
           </div>
 
           <div></div>
