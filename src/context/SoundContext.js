@@ -4,26 +4,22 @@ import ReactHowler from 'react-howler';
 const SoundContext = createContext();
 
 function SoundProvider({ children }) {
-  const [playing, setPlaying] = useState(false);
   const [src, setSrc] = useState('');
 
   const toggleSound = (fileName) => {
-    if (playing) {
-      setSrc('');
-      setPlaying(false);
-      return;
-    }
-    setSrc(`https://studeecloud-server.herokuapp.com/public/${fileName}`);
-    setPlaying(true);
+    setSrc(
+      !!src ? '' : `https://studeecloud-server.herokuapp.com/public/${fileName}`
+    );
   };
 
-  const states = { toggleSound, playing };
+  const isPlaying = !!src;
+  const states = { toggleSound, isPlaying };
 
   return (
     <SoundContext.Provider value={states}>
       {children}
       <ReactHowler
-        playing={playing}
+        playing={!!src}
         html5={true}
         loop={true}
         volume={0.6}
