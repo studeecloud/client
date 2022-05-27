@@ -70,6 +70,7 @@ export default function PomodoroTimer() {
           />
         </button>
 
+        {/* TODO -- refactor buttons into their own component */}
         {showSettings ? (
           <>
             <button

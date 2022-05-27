@@ -1,7 +1,7 @@
 import PianoSound from './PianoSound';
 import RainSound from './RainSound';
 import StringSound from './StringSound';
-import PomodoroTimer from './NewPomodoroTimer';
+import PomodoroTimer from './PomodoroTimer';
 
 export default function SoundPanel() {
   return (
