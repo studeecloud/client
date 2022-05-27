@@ -1,32 +1,28 @@
-import { createContext, useState, useEffect, useContext } from 'react';
+import { createContext, useState, useContext } from 'react';
 import ReactHowler from 'react-howler';
 
 const SoundContext = createContext();
 
 function SoundProvider({ children }) {
-  //Determines if each track is playing, set through function located in each sound component
-  const [piano, setPiano] = useState(false);
-  const [rain, setRain] = useState(false);
-  const [string, setString] = useState(false);
-
   const [src, setSrc] = useState('');
 
-  //React-Howler state managing playing status of tracks
-  const [playing, setPlaying] = useState(false);
+  // If a sound is playing, we pause it; if no sound is playing, we begin playing the currently selected sound
+  const toggleSound = (fileName) => {
+    // When a sound is playing, 'src' is a String reflecting the file name of the sound being played
+    // When a sound is not playing, 'src' is an empty String
+    setSrc(
+      src ? '' : `https://studeecloud-server.herokuapp.com/public/${fileName}`
+    );
+  };
 
-  //HELPER FUNCTION: COnnect playingState to each individaul sound's state
-  //Setplaying is called when play-button of any sound component is clicked
-  useEffect(() => {
-    setPlaying(piano || rain || string ? true : false);
-  }, [piano, rain, string]);
+  const isPlaying = !!src;
+  const states = { toggleSound, isPlaying };
 
-  //All necessary states for app to track when rerendering
-  const states = { piano, setPiano, rain, setRain, string, setString, setSrc };
   return (
     <SoundContext.Provider value={states}>
       {children}
       <ReactHowler
-        playing={playing}
+        playing={!!src}
         html5={true}
         loop={true}
         volume={0.6}
