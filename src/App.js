@@ -4,12 +4,13 @@ import classnames from 'classnames';
 import TitlePanel from './components/TitlePanel';
 import VideoPanel from './components/VideoPanel';
 import ChatPanel from './components/ChatPanel';
-import SoundPanel from './components/SoundPanel';
+import SoundPanel from './components/BottomRightPanel/SoundPanel';
 
 function App({ userName, twilioRoomObj }) {
   const roomName = twilioRoomObj.name;
 
-  const joinRoomLink = window.location.origin + '/join_room.html?room=' + roomName;
+  const joinRoomLink =
+    window.location.origin + '/join_room.html?room=' + roomName;
 
   const [panelState, setPanelState] = useState({ focused: null });
 
@@ -52,10 +53,7 @@ function App({ userName, twilioRoomObj }) {
     .map((panel) => {
       if (panel.id === 1)
         return (
-          <TitlePanel key={1}
-            roomName={roomName}
-            joinRoomLink={joinRoomLink}
-          />
+          <TitlePanel key={1} roomName={roomName} joinRoomLink={joinRoomLink} />
         );
       else if (panel.id === 2)
         return (

@@ -1,6 +1,6 @@
-import PianoSound from './PianoSound';
-import RainSound from './RainSound';
-import StringSound from './StringSound';
+import PianoSound from '../PianoSound';
+import RainSound from '../RainSound';
+import StringSound from '../StringSound';
 import Timer from './Timer';
 
 export default function SoundPanel() {

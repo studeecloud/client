@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import TimerButtonPanel from './TimerButtonPanel';
-import { useInterval } from '../hooks';
+import { useInterval } from '../../hooks';
 
 export default function Timer() {
   // This tracks whether whether we are displaying the settings buttons
