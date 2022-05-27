@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
-import { useSound } from '../context/SoundContext';
+import { useSound } from '../../context/SoundContext';
 import Sound from './Sound';
-import PomodoroTimer from './PomodoroTimer';
+import Timer from './Timer';
 
 /**
  * @param {Array} soundData -- array of objects with Integer key 'id' and String keys 'file' and 'name'
@@ -67,7 +67,7 @@ export default function SoundPanel({ soundData }) {
           </div>
 
           <div className="flex items-center h-full py-8">
-            <PomodoroTimer />
+            <Timer />
           </div>
         </div>
       </div>
