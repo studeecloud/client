@@ -1,31 +1,19 @@
 import classnames from 'classnames';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
-import { useSound } from '../context/SoundContext';
 
-export default function Sound({ file, name, selectSound, isSelected }) {
-  const { toggleSound, playing } = useSound();
-
-  const soundNameClasses = classnames('font-body text-2xl text-center', {
-    'text-coral': isSelected,
-  });
+export default function Sound({ name, selectSound, isSelected }) {
+  const soundNameClasses = classnames(
+    'font-body text-2xl text-center px-4 py-1',
+    {
+      'text-teal bg-meringue border-2 rounded-full': isSelected,
+      'text-meringue border-teal border-2': !isSelected,
+    }
+  );
 
   return (
-    <section className="flex flex-row justify-between items-center">
-      <div>
-        <h1 className={soundNameClasses}>{name}</h1>
-      </div>
-      <div>
-        {playing ? (
-          <button onClick={selectSound} className="align-middle">
-            <FontAwesomeIcon icon={solid('circle-pause')} className="h-5" />
-          </button>
-        ) : (
-          <button onClick={selectSound} className="align-middle">
-            <FontAwesomeIcon icon={solid('circle-play')} className="h-5" />
-          </button>
-        )}
-      </div>
+    <section className="mb-2 flex flex-row justify-center items-center">
+      <h1 onClick={selectSound} className={soundNameClasses}>
+        {name}
+      </h1>
     </section>
   );
 }

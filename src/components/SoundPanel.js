@@ -1,6 +1,9 @@
 import { useState } from 'react';
-import PomodoroTimer from './PomodoroTimer';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
+import { useSound } from '../context/SoundContext';
 import Sound from './Sound';
+import PomodoroTimer from './PomodoroTimer';
 
 /**
  * @param {Array} soundData -- array of objects with Integer key 'id' and String keys 'file' and 'name'
@@ -10,11 +13,11 @@ import Sound from './Sound';
  */
 
 export default function SoundPanel({ soundData }) {
-  const [selectedSound, setSelectedSound] = useState(null);
+  const { toggleSound, playing } = useSound();
+  const [selectedSound, setSelectedSound] = useState('');
 
-  const selectSound = (id) => {
-    console.log(`Now selecting sound ${id}!`);
-    setSelectedSound(id);
+  const selectSound = (file) => {
+    setSelectedSound(file);
   };
 
   const sounds = soundData.map((sound) => {
@@ -22,8 +25,8 @@ export default function SoundPanel({ soundData }) {
       <Sound
         key={sound.id}
         {...sound}
-        selectSound={() => selectSound(sound.id)}
-        isSelected={sound.id === selectedSound}
+        selectSound={() => selectSound(sound.file)}
+        isSelected={sound.file === selectedSound}
       />
     );
   });
@@ -38,8 +41,23 @@ export default function SoundPanel({ soundData }) {
             </h1>
           </div>
 
-          <div className="w-7/12 h-1/3 px-6 py-2 my-auto flex flex-col justify-around text-meringue bg-teal border-2 rounded-xl">
+          <div className="w-1/2 px-6 py-6 my-auto flex flex-col justify-around text-meringue bg-teal border-2 rounded-xl">
             {sounds}
+            {playing ? (
+              <button
+                onClick={() => toggleSound(selectedSound)}
+                className="align-middle"
+              >
+                <FontAwesomeIcon icon={solid('circle-pause')} className="h-9" />
+              </button>
+            ) : (
+              <button
+                onClick={() => toggleSound(selectedSound)}
+                className="align-middle"
+              >
+                <FontAwesomeIcon icon={solid('circle-play')} className="h-9" />
+              </button>
+            )}
           </div>
         </div>
 
