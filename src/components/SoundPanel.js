@@ -1,17 +1,11 @@
 import PomodoroTimer from './PomodoroTimer';
 import Sound from './Sound';
 
-const soundData = [
-  { file: 'Strings.mp3', name: 'Violin' },
-  { file: 'Rain.mp3', name: 'Storm' },
-  { file: 'Piano.mp3', name: 'Piano' },
-];
+export default function SoundPanel({ soundData }) {
+  const sounds = soundData.map((sound) => {
+    return <Sound {...sound} />;
+  });
 
-const sounds = soundData.map((sound) => {
-  return <Sound {...sound} />;
-});
-
-export default function SoundPanel() {
   return (
     <section className="dashboard__panel relative border bg-meringue">
       <div className="flex h-full">
