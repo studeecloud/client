@@ -22,11 +22,9 @@ export default function SoundPanel() {
             </h1>
           </div>
 
-          <div className="w-7/12 h-1/3 mx-auto px-6 py-2 flex flex-col justify-around text-meringue bg-teal border-2 rounded-xl">
+          <div className="w-7/12 h-1/3 px-6 py-2 my-auto flex flex-col justify-around text-meringue bg-teal border-2 rounded-xl">
             {sounds}
           </div>
-
-          <div></div>
         </div>
 
         <div className="w-1/2 flex flex-col items-center">
