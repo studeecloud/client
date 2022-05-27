@@ -13,7 +13,7 @@ import PomodoroTimer from './PomodoroTimer';
  */
 
 export default function SoundPanel({ soundData }) {
-  const { toggleSound, playing } = useSound();
+  const { toggleSound, isPlaying } = useSound();
   const [selectedSound, setSelectedSound] = useState('');
 
   const selectSound = (file) => {
@@ -43,24 +43,19 @@ export default function SoundPanel({ soundData }) {
 
           <div className="w-7/12 px-6 py-8 my-auto flex flex-col justify-around text-meringue bg-teal border-2 rounded-xl">
             {sounds}
-            {playing ? (
-              <button
-                onClick={() => toggleSound(selectedSound)}
-                className="align-middle"
-              >
+            <button
+              onClick={() => toggleSound(selectedSound)}
+              className="align-middle"
+            >
+              {isPlaying ? (
                 <FontAwesomeIcon
                   icon={solid('circle-pause')}
                   className="h-10"
                 />
-              </button>
-            ) : (
-              <button
-                onClick={() => toggleSound(selectedSound)}
-                className="align-middle"
-              >
+              ) : (
                 <FontAwesomeIcon icon={solid('circle-play')} className="h-10" />
-              </button>
-            )}
+              )}
+            </button>
           </div>
         </div>
 
