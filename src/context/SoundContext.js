@@ -4,7 +4,6 @@ import ReactHowler from 'react-howler';
 const SoundContext = createContext();
 
 function SoundProvider({ children }) {
-  // Determines if ANY track is playing
   const [playing, setPlaying] = useState(false);
   const [src, setSrc] = useState('');
 
@@ -18,7 +17,6 @@ function SoundProvider({ children }) {
     setPlaying(true);
   };
 
-  //All necessary states for app to track when rerendering
   const states = { toggleSound, playing };
 
   return (
