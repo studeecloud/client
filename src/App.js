@@ -13,9 +13,9 @@ function App({ userName, twilioRoomObj }) {
     window.location.origin + '/join_room.html?room=' + roomName;
 
   const soundData = [
-    { file: 'Strings.mp3', name: 'Violin' },
-    { file: 'Rain.mp3', name: 'Storm' },
-    { file: 'Piano.mp3', name: 'Piano' },
+    { id: 0, file: 'Strings.mp3', name: 'Violin' },
+    { id: 1, file: 'Rain.mp3', name: 'Storm' },
+    { id: 2, file: 'Piano.mp3', name: 'Piano' },
   ];
 
   //Changes panelState by panel id
