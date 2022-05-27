@@ -32,3 +32,11 @@
 .CircularProgressbar-text {
   text-align: center;
 }
+
+#roomLinkButton {
+  border: 3px solid #016668;
+}
+
+#roomLinkButton:hover {
+  text-shadow: 0px 0px 1px black;
+}

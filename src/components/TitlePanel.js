@@ -1,11 +1,21 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { light } from '@fortawesome/fontawesome-svg-core/import.macro';
 
-export default function TitlePanel(props) {
-  const {
-    roomName, //used in displaying roomName
-    joinRoomLink,
-  } = props;
+export default function TitlePanel({ roomName, joinRoomLink }) {
+  const copyLink = () => {
+    navigator.clipboard.writeText(joinRoomLink);
+    document.getElementById('roomLinkButton').animate(
+      [
+        // keyframes
+        { background: '#016668' },
+        { background: '#fef9e8' },
+      ],
+      {
+        // timing options
+        duration: 1000,
+      }
+    );
+  };
 
   return (
     <section className="dashboard__panel relative border bg-meringue py-4">
@@ -25,18 +35,18 @@ export default function TitlePanel(props) {
           <h3 className="font-body text-dark-gray text-2xl mr-3">
             <strong>Invite your team to</strong>
           </h3>
-          <div className="w-fit px-4 py-2 flex items-center justify-center border-2 rounded-lg">
-            <button
-              type="button"
-              className="flex items-center hover:font-bold text-body text-teal text-xl"
-              onClick={() => navigator.clipboard.writeText(joinRoomLink)}
-            >
-              <span className="font-body text-dark-gray text-2xl">
-                {roomName}
-              </span>
-              <FontAwesomeIcon icon={light('clone')} className="ml-4 h-8" />
-            </button>
-          </div>
+
+          <button
+            id="roomLinkButton"
+            type="button"
+            className="px-6 py-2 flex items-center text-body text-teal text-xl rounded-lg"
+            onClick={copyLink}
+          >
+            <span className="font-body text-dark-gray text-2xl">
+              {roomName}
+            </span>
+            <FontAwesomeIcon icon={light('clone')} className="ml-4 h-8" />
+          </button>
         </div>
       </div>
     </section>
