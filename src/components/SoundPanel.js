@@ -1,4 +1,3 @@
-import PomodoroTimer from './PomodoroTimer';
 import PianoSound from './PianoSound';
 import RainSound from './RainSound';
 import StringSound from './StringSound';
@@ -30,9 +29,7 @@ export default function SoundPanel() {
             </h1>
           </div>
 
-          <div className="flex items-center h-full py-8">
-            <PomodoroTimer />
-          </div>
+          <div className="flex items-center h-full py-8"></div>
         </div>
       </div>
     </section>
