@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import About from './routes/about';
 import "./index.css";
 
 import Loader from "./Loader";
@@ -11,18 +10,12 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <Routes>
-      <Route path='/' element={<Loader />}>
-        {/* Should we nest <App /> here? */}
-        <Route path='/about' element={<About />} />
-        <Route
-          path="*"
-          element={
-            <main>
-              <p font-accent>Under construction...</p>
-            </main>
-          }
-        />
-      </Route>
+      {/* Root '/': keep blank (future landing page)
+          /app: Loader => App (Loader may be replaced by useEffect in App)
+          /login: Login
+      
+      */}
+      <Route path='/app' element={<Loader />} />
     </Routes>
   </BrowserRouter>
 );
