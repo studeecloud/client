@@ -11,7 +11,15 @@ root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<Loader />}>
-
+        {/* Should we nest <App /> here? */}
+        <Route
+          path="*"
+          element={
+            <main>
+              <p font-accent>Under construction...</p>
+            </main>
+          }
+        />
       </Route>
     </Routes>
   </BrowserRouter>
