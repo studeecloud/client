@@ -8,7 +8,13 @@ import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Loader />
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Loader />}>
+
+      </Route>
+    </Routes>
+  </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function
