@@ -2,7 +2,8 @@ export default function About(props) {
   return (
     <main>
       <div classNames="h-screen w-screen flex flex-col justify-between">
-        <div classNames="font-header text-center">
+        <h2>About page in progress...</h2>
+        {/* <div classNames="font-header text-center">
           <h1 classNames="font-display text-7xl mt-12 mb-6">StudeeCloud</h1>
         </div>
 
@@ -17,7 +18,7 @@ export default function About(props) {
         <div classNames="flex mb-14">
           <h3 classNames="w-1/2 mr-10 flex justify-end items-center text-3xl text-center">
             <strong>STACK</strong>
-            <img src="/icons/microchip.svg" classNames="w-9 ml-3" />
+            <img src=".../public/icons/microchip.svg" classNames="w-9 ml-3" />
           </h3>
           <div classNames="text-2xl w-1/2">
             <h4>FRONT END</h4>
@@ -65,7 +66,7 @@ export default function About(props) {
               </a>
             </li>
           </ul>
-        </div>
+        </div> */}
       </div>
     </main>
   );
