@@ -1,4 +1,3 @@
-import { Link, Outlet } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { light } from '@fortawesome/fontawesome-svg-core/import.macro';
 
@@ -20,10 +19,6 @@ export default function TitlePanel({ roomName, joinRoomLink }) {
 
   return (
     <section className="dashboard__panel relative border bg-meringue py-4">
-      <nav>
-        <Link to='/about'>About</Link>
-      </nav>
-      <Outlet />
       <div className="h-full flex flex-col justify-between">
         <div></div>
         <div>
