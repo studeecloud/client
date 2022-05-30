@@ -2,7 +2,7 @@ import './App.css';
 import React, { useState } from 'react';
 import classnames from 'classnames';
 import TitlePanel from './components/TitlePanel';
-import VideoPanel from './components/VideoPanel';
+import VideoPanel from './components/TopRightPanel/VideoPanel';
 import ChatPanel from './components/ChatPanel';
 import SoundPanel from './components/BottomRightPanel/SoundPanel';
 
